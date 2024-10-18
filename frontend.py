@@ -17,7 +17,7 @@ def add_user(name, email, hashed_password):
     conn.commit()
     conn.close()
 
-def login_user(email, password):
+def login_user(email):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute('SELECT * FROM users WHERE email = ?', (email,))
@@ -34,8 +34,7 @@ def register():
     
     if st.button("Register"):
         if name and email and password:
-            # Hash password before storing
-            hashed_password = generate_password_hash(password, method='sha256')
+            hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
             try:
                 add_user(name, email, hashed_password)
                 st.success("Registration successful! You can now login.")
@@ -51,18 +50,27 @@ def login():
     password = st.text_input("Enter your password", type="password")
     
     if st.button("Login"):
-        user = login_user(email, password)
+        user = login_user(email)
         if user and check_password_hash(user[2], password):
             st.success(f"Welcome back, {user[0]}!")
-            # Call function for interview questions or proceed to main app functionality
+            # Redirect to interview questions
             interview_questions()
         else:
             st.error("Invalid credentials. Please try again.")
 
-# --- Main Application ---
+# --- Interview Questions ---
 def interview_questions():
-    st.write("Here you can display the interview questions after login.")
-    # Implement the questions or continue your app flow
+    st.subheader("Interview Questions")
+    # Example of questions to ask after login
+    languages_known = st.text_input("What programming languages do you know?")
+    years_of_experience = st.text_input("How many years of experience do you have?")
+    education = st.text_input("What is your educational background?")
+    soft_skills = st.text_input("What are your key soft skills?")
+    technical_skills = st.text_input("What technical skills do you possess?")
+    
+    if st.button("Submit"):
+        st.success("Your interview details have been submitted!")
+        # Process answers here
 
 # --- Main Interface ---
 def main():
