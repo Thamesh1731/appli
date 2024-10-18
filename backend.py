@@ -63,7 +63,7 @@ def get_all_applicants():
 # Send data to Gemini AI for analysis and shortlisting
 def shortlist_applicants(applicants):
     # Simulate calling Gemini API
-    gemini_response = requests.post('https://gemini-api/shortlist', json={"applicants": applicants}, headers={'Authorization': f'Bearer {GEMINI_API_KEY}'})
+    gemini_response = requests.post('https://gemini-api/shortlist', json={"applicants": applicants}, headers={'Authorization': f'Bearer {AIzaSyBa9kRA5l_zZx3TQDwRpPQy2E0y1X9vGOM}'})
     shortlisted_emails = gemini_response.json().get('shortlisted', [])
     return shortlisted_emails
 
@@ -75,7 +75,7 @@ def send_shortlist_email(email):
     
     with smtplib.SMTP('smtp.gmail.com', 587) as server:
         server.starttls()
-        server.login(sender, os.getenv('GMAIL_PASSWORD'))
+        server.login(sender, os.getenv('eyyb zkyv jptu nlip'))
         server.sendmail(sender, receiver, message)
 
 if __name__ == "__main__":
