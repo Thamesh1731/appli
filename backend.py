@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Replace with your Gemini AI Key
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+GEMINI_API_KEY = os.getenv('AIzaSyBa9kRA5l_zZx3TQDwRpPQy2E0y1X9vGOM')
 
 # Initialize database connection
 def get_db_connection():
@@ -69,7 +69,7 @@ def shortlist_applicants(applicants):
 
 # Function to send email to shortlisted candidates
 def send_shortlist_email(email):
-    sender = 'your-email@gmail.com'
+    sender = 'dsproject490@gmail.com'
     receiver = email
     message = f"Subject: Shortlisted\n\nCongratulations! You have been shortlisted."
     
