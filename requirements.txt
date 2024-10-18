@@ -4,5 +4,4 @@ flask-cors
 email-validator
 requests
 python-dotenv
-sqlite3
 gemini-api
