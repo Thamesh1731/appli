@@ -5,3 +5,4 @@ email-validator
 requests
 python-dotenv
 gemini-api
+werkzeug
