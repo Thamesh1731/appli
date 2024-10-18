@@ -1,7 +1,6 @@
 streamlit
 flask
 flask-cors
-smtplib
 email-validator
 requests
 python-dotenv
