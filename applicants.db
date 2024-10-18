@@ -1,0 +1,16 @@
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE,
+    password TEXT
+);
+
+CREATE TABLE applicants (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT,
+    languages_known TEXT,
+    years_of_experience INTEGER,
+    programming_languages TEXT,
+    education TEXT,
+    soft_skills TEXT,
+    technical_skills TEXT
+);
